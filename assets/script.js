@@ -16,3 +16,18 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+// Flèche gauche et droite du slider
+
+let boutonGauche = document.getElementById('bouton-gauche');
+boutonGauche.addEventListener('click', function(){
+	console.log('click');
+});
+
+let boutonDroit = document.getElementById('bouton-droit');
+boutonDroit.addEventListener('click', function(){
+	console.log('click');
+});
+
+
+
