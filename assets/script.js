@@ -29,5 +29,40 @@ boutonDroit.addEventListener('click', function(){
 	console.log('click');
 });
 
+// Gestion des boutons gauche/droit
+boutonGauche.addEventListener('click', function(){
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlider(currentIndex);
+});
+
+boutonDroit.addEventListener('click', function(){
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider(currentIndex);
+});
 
 
+const dots = document.querySelectorAll('.dot');
+let currentIndex = 0; // Index du slide actuel
+
+function updateSlider(index) {
+    // Met à jour l'image et le texte
+    document.querySelector('.banner-img').src = `./assets/images/slideshow/${slides[index].image}`;
+    document.querySelector('#banner p').innerHTML = slides[index].tagLine;
+
+    // Met à jour les dots
+    dots.forEach(dot => dot.classList.remove('dot_selected'));
+    dots[index].classList.add('dot_selected');
+}
+
+
+
+// Gestion du clic sur les dots
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlider(currentIndex);
+    });
+});
+
+// Initialisation
+updateSlider(currentIndex);
